@@ -62,8 +62,9 @@ class _StoryPageState extends State<StoryPage> {
                     foregroundColor: Colors.white,
                   ),
                   child: Text(
-                    //TODO: Step 13 - Use the storyBrain to get the text for choice 1.
-                    'Choice 1',
+                    //Step 13 - Use the storyBrain to get the text for choice 1.
+
+                    storyBrain.getChoice1(),
                     style: TextStyle(
                       fontSize: 20.0,
                     ),
@@ -88,7 +89,7 @@ class _StoryPageState extends State<StoryPage> {
                   ),
                   child: Text(
                     //TODO: Step 14 - Use the storyBrain to get the text for choice 2.
-                    'Choice 2',
+                    storyBrain.getChoice2(),
                     style: TextStyle(
                       fontSize: 20.0,
                     ),
