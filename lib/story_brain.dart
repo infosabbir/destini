@@ -50,7 +50,21 @@ class StoryBrain {
   }
 
   // Step 17 - Create a method called nextStory(), it should not have any outputs but it should have 1 input called choiceNumber which will be the choice number (int) made by the user.
-  void nextStory(int userChoice) {}
+  void nextStory(int choice) {
+    if (storyNumber == 0 && choice == 1) {
+      storyNumber = 2;
+    } else if (storyNumber == 0 && choice == 2) {
+      storyNumber = 1;
+    } else if (storyNumber == 1 && choice == 1) {
+      storyNumber = 2;
+    } else if (storyNumber == 1 && choice == 2) {
+      storyNumber = 3;
+    } else if (storyNumber == 2 && choice == 1) {
+      storyNumber = 5;
+    } else if (storyNumber == 2 && choice == 2) {
+      storyNumber = 4;
+    }
+  }
 }
 //TODO: Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
 
