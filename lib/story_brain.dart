@@ -2,7 +2,9 @@ import 'package:destini/story.dart';
 
 class StoryBrain {
   // Step 16 - Create a property called storyNumber which starts with a value of 0. This will be used to track which story the user is currently viewing.
-  int storyNumber = 0;
+  int _storyNumber = 0;
+  // Step 25 - Change the storyNumber property into a private property so that only story_brain.dart has access to it. You can do this by right clicking on the name (storyNumber) and selecting Refactor -> Rename to make the change across all the places where it's used.
+
   List<Story> _storyData = [
     Story(
         storyTitle:
@@ -36,47 +38,45 @@ class StoryBrain {
   ];
   //Step 8 - Create a method called getStory() that returns the first storyTitle from _storyData.
   String getStory() {
-    return _storyData[storyNumber].storyTitle;
+    return _storyData[_storyNumber].storyTitle;
     // Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
   }
 
   //Step 11 - Create a method called getChoice1() that returns the text for the first choice1 from _storyData.
   String getChoice1() {
-    return _storyData[storyNumber].choice1;
+    return _storyData[_storyNumber].choice1;
   }
 
   //Step 12 - Create a method called getChoice2() that returns the text for the first choice2 from _storyData.
   String getChoice2() {
-    return _storyData[storyNumber].choice2;
+    return _storyData[_storyNumber].choice2;
   }
 
   void restart() {
-    storyNumber = 0;
+    _storyNumber = 0;
   }
 
   // Step 17 - Create a method called nextStory(), it should not have any outputs but it should have 1 input called choiceNumber which will be the choice number (int) made by the user.
   void nextStory(int choice) {
-    if (storyNumber == 0 && choice == 1) {
-      storyNumber = 2;
-    } else if (storyNumber == 0 && choice == 2) {
-      storyNumber = 1;
-    } else if (storyNumber == 1 && choice == 1) {
-      storyNumber = 2;
-    } else if (storyNumber == 1 && choice == 2) {
-      storyNumber = 3;
-    } else if (storyNumber == 2 && choice == 1) {
-      storyNumber = 5;
-    } else if (storyNumber == 2 && choice == 2) {
-      storyNumber = 4;
+    if (_storyNumber == 0 && choice == 1) {
+      _storyNumber = 2;
+    } else if (_storyNumber == 0 && choice == 2) {
+      _storyNumber = 1;
+    } else if (_storyNumber == 1 && choice == 1) {
+      _storyNumber = 2;
+    } else if (_storyNumber == 1 && choice == 2) {
+      _storyNumber = 3;
+    } else if (_storyNumber == 2 && choice == 1) {
+      _storyNumber = 5;
+    } else if (_storyNumber == 2 && choice == 2) {
+      _storyNumber = 4;
     }
     // Step 22 - In nextStory() if the storyNumber is equal to 3 or 4 or 5, that means it's the end of the game and it should call a method called restart() that resets the storyNumber to 0.
-    else if (storyNumber == 3 || storyNumber == 4 || storyNumber == 5) {
+    else if (_storyNumber == 3 || _storyNumber == 4 || _storyNumber == 5) {
       restart();
     }
   }
 }
-
-//TODO: Step 25 - Change the storyNumber property into a private property so that only story_brain.dart has access to it. You can do this by right clicking on the name (storyNumber) and selecting Refactor -> Rename to make the change across all the places where it's used.
 
 //TODO: Step 20 - Download the story plan here: https://drive.google.com/uc?export=download&id=1KU6EghkO9Hf2hRM0756xFHgNaZyGCou3
 
